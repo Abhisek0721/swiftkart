@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Grocery",
+        "path": "/categories/Grocery.webp"
+    },
+    {
+        "name": "Mobiles",
+        "path": "/categories/Mobiles.webp"
+    },
+    {
+        "name": "Fashion",
+        "path": "/categories/Fashion.webp"
+    },
+    {
+        "name": "Electronics",
+        "path": "/categories/Electronics.webp"
+    },
+    {
+        "name": "Appliances",
+        "path": "/categories/Appliances.webp"
+    },
+    {
+        "name": "Home & Furniture",
+        "path": "/categories/Home&Furniture.webp"
+    },
+    {
+        "name": "Kids",
+        "path": "/categories/Kids.webp"
+    }
+]

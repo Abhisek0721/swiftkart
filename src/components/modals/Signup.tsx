@@ -23,8 +23,8 @@ export default function Signup({ toggleSignupModal, setToggleSignupModal }: {
               <XIcon></XIcon>
             </DialogClose>
 
-            <DialogTitle className="font-semibold text-base">Signup for SwiftKart</DialogTitle>
-            <DialogDescription className="text-slate-500 text-xs my-3">
+            <DialogTitle className="font-semibold text-base text-center">Signup for SwiftKart</DialogTitle>
+            <DialogDescription className="text-slate-500 text-xs my-3 text-center">
               Get Exciting Offers & Track Order.
             </DialogDescription>
           </DialogHeader>
