@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "SwiftKart",
   description: "SwiftKart: Online Shopping Website",
+  icons: {
+    icon: "/favicon.ico", // Path to the favicon file in the public directory
+  },
 };
 
 export default function RootLayout({
