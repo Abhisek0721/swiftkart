@@ -1,42 +1,58 @@
 [
     {
-        "productName": "Samsung M21",
-        "productPrice": 14500,
-        "productDescription": "This is product description"
+        "productName": "Tripping Printed Oversized T-Shirt For Men",
+        "productCategory": "fashion",
+        "productPrice": 530,
+        "productDescription": "This is product description",
+        "url": "/products/tshirt.jpg"
+    },
+    {
+        "productName": "White flat knit solid polo shirt",
+        "productCategory": "fashion",
+        "productPrice": 600,
+        "productDescription": "This is product description",
+        "url": "/products/white_flat_knit_solid_polo_shirt.jpg"
+    },
+    {
+        "productName": "Tripping Printed Oversized T-Shirt For Men",
+        "productCategory": "fashion",
+        "productPrice": 530,
+        "productDescription": "This is product description",
+        "url": "/products/tshirt.jpg"
+    },
+    {
+        "productName": "White flat knit solid polo shirt",
+        "productCategory": "fashion",
+        "productPrice": 600,
+        "productDescription": "This is product description",
+        "url": "/products/white_flat_knit_solid_polo_shirt.jpg"
     },
     {
         "productName": "Samsung M21",
+        "productCategory": "mobile",
         "productPrice": 14500,
-        "productDescription": "This is product description"
+        "productDescription": "This is product description",
+        "url": "/products/tshirt.jpg"
     },
     {
         "productName": "Samsung M21",
+        "productCategory": "mobile",
         "productPrice": 14500,
-        "productDescription": "This is product description"
+        "productDescription": "This is product description",
+        "url": "/products/tshirt.jpg"
     },
     {
         "productName": "Samsung M21",
+        "productCategory": "mobile",
         "productPrice": 14500,
-        "productDescription": "This is product description"
+        "productDescription": "This is product description",
+        "url": "/products/tshirt.jpg"
     },
     {
         "productName": "Samsung M21",
+        "productCategory": "mobile",
         "productPrice": 14500,
-        "productDescription": "This is product description"
-    },
-    {
-        "productName": "Samsung M21",
-        "productPrice": 14500,
-        "productDescription": "This is product description"
-    },
-    {
-        "productName": "Samsung M21",
-        "productPrice": 14500,
-        "productDescription": "This is product description"
-    },
-    {
-        "productName": "Samsung M21",
-        "productPrice": 14500,
-        "productDescription": "This is product description"
+        "productDescription": "This is product description",
+        "url": "/products/tshirt.jpg"
     }
 ]

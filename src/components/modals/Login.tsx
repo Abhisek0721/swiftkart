@@ -9,7 +9,7 @@ export default function Login({ toggleLoginModal, setToggleLoginModal }: {
   setToggleLoginModal: Function,
 }) {
   return (
-    <div className="w-[95%] sm:w-8/12 lg:w-4/12 fixed inset-0 mx-auto flex flex-col justify-center">
+    <div className="w-8/12 lg:w-4/12 fixed inset-0 mx-auto flex flex-col justify-center">
       <Dialog open={toggleLoginModal} onOpenChange={() => setToggleLoginModal(!toggleLoginModal)} >
         {
           toggleLoginModal &&

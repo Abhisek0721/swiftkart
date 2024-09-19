@@ -10,7 +10,7 @@ export default function Home() {
     <div className="">
 
       {/* Categories */}
-      <div id="categories" className="bg-background w-[80%] h-32 mx-auto rounded-sm flex justify-center items-center">
+      <div id="categories" className="bg-background w-[95%] sm:w-[80%] h-32 mx-auto rounded-sm hidden lg:flex justify-center items-center">
         {
           categories.map((category, index) => {
             return (
@@ -24,7 +24,7 @@ export default function Home() {
       </div>
 
       {/* Banner */}
-      <div id="banner" className="w-[80%] h-72 mx-auto rounded-sm mt-5 flex items-center light-shadow relative">
+      <div id="banner" className="w-[80%] -z-10 h-72 mx-auto rounded-sm mt-5 hidden lg:flex items-center light-shadow relative">
         <div className="absolute left-0 bg-white w-10 h-32 flex items-center justify-center cursor-pointer">
           <FiChevronLeft className="text-3xl" />
         </div>
@@ -37,9 +37,9 @@ export default function Home() {
       </div>
 
       {/* Products */}
-      <div id="products" className="w-[80%] mx-auto my-32 flex flex-wrap justify-between">
+      <div id="products" className="w-[85%] sm:w-[80%] mx-auto my-32 flex flex-wrap justify-between">
         {
-          product.map((product, index) => <ProductCard key={index} />)
+          product.map((product, index) => <ProductCard data={product} key={index} />)
         }
       </div>
     </div>
