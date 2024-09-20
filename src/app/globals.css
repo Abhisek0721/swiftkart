@@ -64,6 +64,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-slate-100 text-foreground;
   }
@@ -82,9 +83,10 @@
 .blur-background {
   filter: blur(2px);
   transition: filter 0.3s ease;
-  /* background-color: rgb(0, 0, 0); */
 }
 
 .light-shadow {
   box-shadow:  0 0 1px rgba(0, 0, 0, 0.1);
 }
+
+

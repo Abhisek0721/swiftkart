@@ -6,5 +6,9 @@
     {
         "name": "samsung-monitor",
         "path": "/banners/samsung-monitor.webp"
+    },
+    {
+        "name": "iphone15",
+        "path": "/banners/iphone15.webp"
     }
 ]
