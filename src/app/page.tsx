@@ -10,7 +10,7 @@ export default function Home() {
     <div className="">
 
       {/* Categories */}
-      <div id="categories" className="bg-background w-[95%] sm:w-[80%] h-32 mx-auto rounded-sm hidden lg:flex justify-center items-center">
+      <div id="categories" className="bg-background w-[95%] sm:w-[80%] h-32 mx-auto rounded-sm hidden lg:flex justify-center items-center overflow-x-scroll">
         {
           categories.map((category, index) => {
             return (
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
 
       {/* Products */}
-      <div id="products" className="w-[85%] sm:w-[80%] mx-auto my-32 flex flex-wrap justify-between">
+      <div id="products" className="w-[85%] sm:w-[80%] mx-auto my-20 md:my-5 xl:my-32 flex flex-wrap justify-between">
         {
           product.map((product, index) => <ProductCard data={product} key={index} />)
         }

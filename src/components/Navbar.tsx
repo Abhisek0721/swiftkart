@@ -18,8 +18,8 @@ export default function Navbar() {
     <div>
       {!noNavbarRoutes.includes(pathname) && (
         <div className="mb-32">
-          <nav className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
-            <div className="w-full max-w-7xl mx-auto px-4 py-5">
+          <nav className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm">
+            <div className="w-full max-w-7xl mx-auto px-4 py-2 lg:py-5">
               <div className="flex justify-between h-14 items-center">
                 <div className="flex">
                   <Link href="/" className="flex items-center" prefetch={false}>
@@ -44,6 +44,16 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+            {/* Searchbar for mobile */}
+            <div className="flex lg:hidden items-center justify-evenly mx-auto pb-5">
+                <input type="text" placeholder="Search products" className="outline-none text-sm px-3 rounded-sm border-[1px] border-color w-[80%] h-10" />
+                <div className="">
+                  <div className="w-5 h-5 rounded-full bg-black text-white text-xs text-center relative inset-3 left-3 flex flex-col justify-center">
+                    <span>2</span>
+                  </div>
+                  <ShoppingCart className="cursor-pointer" />
+                </div>
+              </div>
           </nav>
           <div>
             <Login toggleLoginModal={toggleLoginModal} setToggleLoginModal={setToggleLoginModal} />

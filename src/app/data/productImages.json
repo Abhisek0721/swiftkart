@@ -1,0 +1,27 @@
+{
+    "productName": "Tripping Printed Oversized T-Shirt For Men",
+    "productCategory": "fashion",
+    "maximumRetailPrice": 1100,
+    "sellingPrice": 560,
+    "productDescription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate excepturi omnis illum? Ad error inventore iusto et reprehenderit, animi in nam ea repudiandae necessitatibus quam libero modi quis veritatis optio.",
+    "images": [
+        {
+            "url": "/products/golden_brown_tshirt_1.jpg"
+        },
+        {
+            "url": "/products/golden_brown_tshirt_2.jpg"
+        },
+        {
+            "url": "/products/golden_brown_tshirt_3.jpg"
+        },
+        {
+            "url": "/products/golden_brown_tshirt_4.jpg"
+        },
+        {
+            "url": "/products/golden_brown_tshirt_5.jpg"
+        },
+        {
+            "url": "/products/golden_brown_tshirt_6.jpg"
+        }
+    ]
+}
