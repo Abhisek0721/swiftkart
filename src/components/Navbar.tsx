@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <div>
       {!noNavbarRoutes.includes(pathname) && (
-        <div className="mb-32">
+        <div className={`mb-32`}>
           <nav className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm">
             <div className="w-full max-w-7xl mx-auto px-4 py-2 lg:py-5">
               <div className="flex justify-between h-14 items-center">
