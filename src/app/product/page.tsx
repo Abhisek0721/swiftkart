@@ -27,7 +27,7 @@ export default function Product(): JSX.Element {
   };
 
   return (
-    <div className="mx-5 mt-40 sm:mx-24 lg:mx-40 xl:mx-80 lg:bg-background p-3">
+    <div className="mx-5 mt-40 sm:mx-24 md:mx-20 xl:mx-80 lg:bg-background p-3">
       {/* Buy Product */}
       <div id="buy-product" className="flex flex-col lg:flex-row lg:justify-between">
         {/* Product Images */}
@@ -49,7 +49,7 @@ export default function Product(): JSX.Element {
           {/* Show Selected Image with Buy Button */}
           <div>
             <div className="light-shadow">
-              <img className={`w-[370px] h-auto transition-all duration-300 ${!isFading ? 'scale-105 opacity-100' : 'opacity-0'}`} src={productData.images[selectedImageIndex].url} alt={productData.productName} draggable={false} />
+              <img className={`w-[370px] h-auto transition-all duration-300 ${!isFading ? 'opacity-100' : 'opacity-0'}`} src={productData.images[selectedImageIndex].url} alt={productData.productName} draggable={false} />
             </div>
             <div className="flex justify-around my-5 lg:my-10">
               <Button className="bg-yellow-600 rounded-sm text-sm text-center w-28 sm:w-32 cursor-pointer hover:bg-yellow-700"><ShoppingCart className="mr-1" />Add to Cart</Button>

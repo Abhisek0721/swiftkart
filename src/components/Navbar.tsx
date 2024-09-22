@@ -7,16 +7,17 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Signup from "./modals/Signup";
 import { ShoppingCart } from "lucide-react";
+import LogoIcon from "./mini/LogoIcon";
 
 export default function Navbar() {
   const [toggleLoginModal, setToggleLoginModal] = useState(false);
   const [toggleSignupModal, setToggleSignupModal] = useState(false);
   const pathname = usePathname(); // Use usePathname from next/navigation
-  const noNavbarRoutes = ["/login", "/signup"];
+  const noNavbarRoutes = ["/admin"];
 
   return (
     <div>
-      {!noNavbarRoutes.includes(pathname) && (
+      {!(noNavbarRoutes.includes(pathname) || pathname.startsWith("/admin")) && (
         <div className={`mb-32`}>
           <nav className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm">
             <div className="w-full max-w-7xl mx-auto px-4 py-2 lg:py-5">
@@ -64,17 +65,5 @@ export default function Navbar() {
         </div>
       )}
     </div>
-  )
-}
-
-function LogoIcon() {
-  return (
-    <Image
-      src="/icons/logo-nobg.png"
-      alt="SwiftKart"
-      width={100}  // Set the width of the icon
-      height={80} // Set the height of the icon
-      className="w-[100px] h-[80px]"
-    />
   )
 }
