@@ -95,7 +95,7 @@ export default function Product(): JSX.Element {
                     <p>
                       {productData.productDescription.slice(0, 300)}...
                     </p>
-                    <button className="mt-2 cursor-pointer font-black text-center flex items-center gap-1" onClick={()=> setReadMoreDesc(!readMoreDesc)}>
+                    <button className="mt-2 cursor-pointer font-sans text-center flex items-center gap-1" onClick={()=> setReadMoreDesc(!readMoreDesc)}>
                       Read More <FaCaretDown />
                     </button>
                   </>
@@ -105,7 +105,7 @@ export default function Product(): JSX.Element {
                       {productData.productDescription}
                     </p>
                     {(productData?.productDescription?.length > 300) ? (
-                      <button className="mt-2 cursor-pointer font-black text-center flex items-center gap-1" onClick={()=> setReadMoreDesc(!readMoreDesc)}>
+                      <button className="mt-2 cursor-pointer font-sans text-center flex items-center gap-1" onClick={()=> setReadMoreDesc(!readMoreDesc)}>
                         Read Less <FaCaretUp />
                       </button>
                     ) : (<></>)}
