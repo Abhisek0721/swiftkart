@@ -79,6 +79,10 @@
   body {
     @apply bg-slate-100 text-foreground;
   }
+
+  .discount-sidebar {
+    @apply absolute top-0 right-0 inset-y-0 bg-background;
+  }
 }
 
 .primary-button {

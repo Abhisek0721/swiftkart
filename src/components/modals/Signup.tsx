@@ -13,6 +13,7 @@ export default function Signup({ toggleSignupModal, setToggleSignupModal }: {
       <Dialog open={toggleSignupModal} onOpenChange={() => setToggleSignupModal(!toggleSignupModal)} >
         {
           toggleSignupModal &&
+          // Darken Background
           <div className="fixed top-0 left-0 -z-10 bg-black bg-opacity-60 w-[100%] h-[100%]"></div>
         }
         <DialogContent className="bg-white p-10 z-10 rounded-md relative px-5">

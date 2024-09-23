@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import Image from 'next/image';
 import Login from "./modals/Login";
 import { useState } from "react";
 import { usePathname } from "next/navigation";

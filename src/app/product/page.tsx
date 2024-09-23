@@ -8,12 +8,14 @@ import { FaCaretDown, FaCaretUp, FaIndianRupeeSign } from "react-icons/fa6";
 import { productDiscountPercentage } from "@/utils";
 import DiscountBox from "@/components/mini/DiscountBox";
 import { useState } from "react";
+import DiscountSidebar from "@/components/DiscountSidebar";
 
 
 export default function Product(): JSX.Element {
   const [readMoreDesc, setReadMoreDesc] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isFading, setIsFading] = useState(false); // For managing fade animation
+  const [toggleOfferSideBar, setToggleOfferSideBar] = useState(false);
 
   // Handle image selection with transition
   const handleImageSelect = (index: number) => {
@@ -80,7 +82,16 @@ export default function Product(): JSX.Element {
             </span>
           </div>
           {/* Product Offers */}
-          <DiscountBox />
+          <div>
+            <DiscountBox aling="start" />
+            <p 
+              className="text-xs text-green-600 cursor-pointer" 
+              onClick={()=> { setToggleOfferSideBar(true); scrollTo({ top: 0, behavior: 'smooth' })} }
+            >
+              View More Offers +
+            </p>
+            <DiscountSidebar toggleOfferSideBar={toggleOfferSideBar} setToggleOfferSideBar={setToggleOfferSideBar}/>
+          </div>
           {/* Product Color */}
           <div></div>
           {/* Product Size */}

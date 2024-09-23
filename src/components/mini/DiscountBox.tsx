@@ -1,8 +1,8 @@
 import { handleCopy } from "@/utils"
 
-const DiscountBox = (): JSX.Element => {
+const DiscountBox = ({aling}: {aling: "start"|"center"|"end"}): JSX.Element => {
     return (
-        <div className="my-5">
+        <div className={`my-5 flex justify-${aling}`} >
             <div className="w-[100%] sm:w-[80%] xl:w-[80%]  flex items-center justify-between bg-green-100 rounded-md light-shadow p-3 sm:p-5">
                 <div className="flex items-center">
                     <div>
