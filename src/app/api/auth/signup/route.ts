@@ -1,14 +1,15 @@
 import bcrypt from 'bcryptjs';
-import connectToDatabase from '@/lib/config/mongooseConfig';
 import User from '@/lib/models/User';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
+import { BadRequestException } from '@/lib/exceptions';
+import { apiResponse } from '@/utils/apiResponse';
+import { withErrorHandler } from '@/lib/helper/errorHandler';
+import { SignupDto } from './dto/signupDto';
 
-export async function POST(req: NextRequest) {
+async function signupHandler(req: NextRequest) {
     try {
-        const { firstName, lastName, email, code, phoneNumber, password, googleId } = await req.json();
-    
-        await connectToDatabase();
-    
+        const payload = await req.json();
+        const { firstName, lastName, email, code, phoneNumber, password, googleId } = new SignupDto(payload);
         // Check if user already exists
         const existingUser = await User.findOne({
           $or: [
@@ -16,9 +17,9 @@ export async function POST(req: NextRequest) {
             { 'phone.code': code, 'phone.phoneNumber': phoneNumber }
           ]
         });
-    
+        
         if (existingUser) {
-          return NextResponse.json({ message: 'User already exists' }, { status: 400 });
+          throw new BadRequestException('User already exists');
         }
     
         // Hash the password
@@ -37,9 +38,10 @@ export async function POST(req: NextRequest) {
             phoneNumber
           }
         });
-    
-        return NextResponse.json({ message: 'User created successfully', user }, { status: 201 });
+        return apiResponse(user, 201, "User created successfully");
       } catch (error) {
-        return NextResponse.json({ message: 'An error occurred', error: error }, { status: 500 });
+        throw error;
       }
 }
+
+export const POST = withErrorHandler(signupHandler);

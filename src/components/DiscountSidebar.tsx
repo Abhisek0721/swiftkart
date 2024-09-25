@@ -27,8 +27,8 @@ export default function DiscountSidebar({toggleOfferSideBar, setToggleOfferSideB
                     {
                         repeatComponent().map((index) => {
                             return (
-                                <div className="">
-                                    <DiscountBox aling='center' key={index}/>
+                                <div className="" key={index}>
+                                    <DiscountBox aling='center' />
                                 </div>
                             )
                         })

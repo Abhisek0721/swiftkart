@@ -1,40 +1,40 @@
 import bcrypt from 'bcryptjs';
-import connectToDatabase from '@/lib/config/mongooseConfig';
 import User from '@/lib/models/User';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import { generateAccessToken } from '@/utils/generateAccessToken';
+import { BadRequestException, UnauthorizedException } from '@/lib/exceptions';
+import { withErrorHandler } from '@/lib/helper/errorHandler';
+import { apiResponse } from '@/utils/apiResponse';
+import { LoginDto } from './dto/loginDto';
 
-export async function POST(req: NextRequest) {
+const loginHandler = async (req: NextRequest) => {
     try {
-        const { email, code, phoneNumber, password, googleId } = await req.json();
-        if( !(email || (code && phoneNumber) || googleId) ) {
-            return NextResponse.json({ message: "Invalid payload! Atleat email, phoneNumber or googleId is required." }, { status: 400 });
-        }
+        const payload = await req.json();
+        const loginDto = new LoginDto(payload);
 
-        await connectToDatabase();
 
         // Check if user already exists
         const existingUser = await User.findOne({
             $or: [
-                { email },
-                { 'phone.code': code, 'phone.phoneNumber': phoneNumber },
-                { googleId }
+                { email: loginDto.email },
+                { 'phone.code': loginDto.code, 'phone.phoneNumber': loginDto.phoneNumber },
+                { googleId: loginDto.googleId }
             ]
         });
 
         if (!existingUser) {
-            return NextResponse.json({ message: "User doesn't exists" }, { status: 400 });
+            throw new BadRequestException("User doesn't exists");
         }
 
-        if (existingUser.googleId !== googleId) {
-            return NextResponse.json({ message: 'Google login failed'}, { status: 401 });
+        if (existingUser.googleId !== loginDto.googleId) {
+            throw new BadRequestException('Google login failed');
         }
 
         // Password login logic
-        if (password && (email || (code && phoneNumber))) {
-            const isPasswordValid = await bcrypt.compare(password, existingUser.password);
-            if (!isPasswordValid || (existingUser.email !== email) || !(existingUser.phone?.code === code && existingUser.phone?.phoneNumber === phoneNumber)) {
-                return NextResponse.json({ message: 'Invalid credential'}, { status: 401 });
+        if (loginDto.password && (loginDto.email || (loginDto.code && loginDto.phoneNumber))) {
+            const isPasswordValid = await bcrypt.compare(loginDto.password, existingUser.password);
+            if (!isPasswordValid || (existingUser.email !== loginDto.email) || !(existingUser.phone?.code === loginDto.code && existingUser.phone?.phoneNumber === loginDto.phoneNumber)) {
+                throw new UnauthorizedException('Invalid credential');
             }
         }
 
@@ -46,21 +46,22 @@ export async function POST(req: NextRequest) {
             phone: {
                 ...existingUser.phone
             },
-            googleId,
+            googleId: existingUser.googleId,
             isVerified: existingUser.isVerified
         };
 
         const access_token = generateAccessToken(user);
-
-        return NextResponse.json({
-            data: {
+        return apiResponse(
+            {
                 access_token,
-                user 
+                user
             },
-            message: 'Login successfull'
-        }, { status: 201 }
+            201,
+            "Login successfull"
         );
     } catch (error) {
-        return NextResponse.json({ message: 'An error occurred', error: error }, { status: 500 });
+        throw error;
     }
 }
+
+export const POST = withErrorHandler(loginHandler);
